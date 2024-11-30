@@ -10,7 +10,6 @@ import { useRef, useEffect } from 'react';
 gsap.registerPlugin(ScrollTrigger);
 
 function AboutContent() {
-  // Refs for animation targets
   const leftSectionRef = useRef<HTMLDivElement | null>(null);
   const rightSectionRef = useRef<HTMLDivElement | null>(null);
 
@@ -19,32 +18,30 @@ function AboutContent() {
     const rightSection = rightSectionRef.current;
 
     if (leftSection && rightSection) {
-      // Animate the left section (image)
       gsap.fromTo(
         leftSection,
-        { opacity: 0, x: -100 },
+        { opacity: 0, x: '-50%' }, // Smaller initial offset
         {
           opacity: 1,
-          x: 0,
-          duration: 1,
+          x: '0%',
+          duration: 1.2,
           ease: 'power3.out',
           scrollTrigger: {
             trigger: leftSection,
             start: 'top 80%',
-            scrub:true,
+            scrub: true,
             toggleActions: 'play reverse play reverse',
           },
         }
       );
 
-      // Animate the right section (text)
       gsap.fromTo(
         rightSection,
-        { opacity: 0, x: 100 },
+        { opacity: 0, x: '50%' }, // Smaller initial offset
         {
           opacity: 1,
-          x: 0,
-          duration: 1,
+          x: '0%',
+          duration: 1.2,
           ease: 'power3.out',
           scrollTrigger: {
             trigger: rightSection,
@@ -58,7 +55,7 @@ function AboutContent() {
   }, []);
 
   return (
-    <div className="bg-[#F9F9F7] flex items-center justify-center px-5 py-7">
+    <div className="bg-[#F9F9F7] flex items-center justify-center px-5 py-7 overflow-hidden">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-0 h-full">
         {/* Left Section with Image */}
         <div ref={leftSectionRef} className="flex justify-center">
@@ -81,9 +78,7 @@ function AboutContent() {
                 </div>
                 <div className="flex items-center gap-3">
                   <img className="w-6 h-6" src={marker} alt="location icon" />
-                  <p>
-                    837 W. Marshall Lane Marshalltown, IA 50158, Los Angeles
-                  </p>
+                  <p>837 W. Marshall Lane Marshalltown, IA 50158, Los Angeles</p>
                 </div>
               </div>
             </div>
@@ -100,15 +95,10 @@ function AboutContent() {
           </p>
           <p className="text-[#2C2F24]">
             Our story began with a vision to create a unique dining experience
-            that merges fine dining, exceptional service, and a vibrant
-            ambiance. Rooted in the city's rich culinary culture, we aim to
-            honor our local roots while infusing a global palate.
+            that merges fine dining, exceptional service, and a vibrant ambiance.
           </p>
           <p className="text-[#2C2F24]">
-            At our place, we believe that dining is not just about food, but
-            also about the overall experience. Our staff, renowned for their
-            warmth and dedication, strives to make every visit an unforgettable
-            event.
+            At our place, we believe that dining is not just about food, but also about the overall experience. 
           </p>
           <div className="flex justify-center md:justify-start">
             <AboutBtn />
