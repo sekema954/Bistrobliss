@@ -1,6 +1,8 @@
 const express = require("express");
 const path = require("path");
-const PORT = process.env.REACT_APP_PORT || 3010;
+
+// Use the PORT provided by Heroku, or default to 3000 for local development
+const PORT = process.env.PORT || 3000;
 const app = express();
 
 // Serve static files from the Vite build folder (dist)
