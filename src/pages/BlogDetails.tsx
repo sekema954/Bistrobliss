@@ -1,7 +1,6 @@
 //blog details page
 import meal from '../assets/images/icons/meal.png';
 import ReadMoreArticles from '../components/ReadMoreArticles';
-
 function BlogDetails() {
   return (
     <div className="px-[20px] md:px-[100px] py-8">

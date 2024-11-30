@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useRef } from 'react';
 import breakfast from '../assets/images/icons/breakfast.png';
 import maindishes from '../assets/images/icons/maindishes.png';
 import drinks from '../assets/images/icons/drinks.png';
@@ -16,6 +16,7 @@ function BrowseMenu() {
   useGSAP(() => {
     // Animate each card when it comes into view
     cardRefs.current.forEach((card, index) => {
+        console.log(index)
       gsap.fromTo(
         card,
         { opacity: 0, scale: 0.8, y: 50 },

@@ -2,35 +2,10 @@ import caterings from '../assets/images/icons/caterings.png';
 import birthdays from '../assets/images/icons/birthdays.png';
 import weddings from '../assets/images/icons/weddings.png';
 import events from '../assets/images/icons/events.png';
-import gsap from 'gsap';
-import { useEffect, useRef } from 'react';
-import ScrollTrigger from 'gsap/ScrollTrigger';
-import { useGSAP } from '@gsap/react';
 
 gsap.registerPlugin(ScrollTrigger);
 
 function ServiceCards() {
-  const cardRefs = useRef<HTMLDivElement[]>([]);
-
-  useGSAP(() => {
-    cardRefs.current.forEach((card) => {
-      gsap.from(card, {
-        opacity: 0,
-        y: 100,
-        rotate: 100,
-        duration: .80,
-        ease: 'power4.inOut',
-        scrollTrigger: {
-          trigger: card,
-          start: 'top 90%',
-          end: 'top 70%',
-          scrub: true,
-          toggleActions: 'play none none reverse',
-        },
-      });
-    });
-  }, []);
-
   const services = [
     {
       id: 1,
@@ -60,9 +35,8 @@ function ServiceCards() {
 
   return (
     <div className="flex flex-col md:flex-row gap-8 justify-center items-center pb-16">
-      {services.map((data, index) => (
+      {services.map((data) => (
         <div
-          ref={(el) => (cardRefs.current[index] = el!)}
           key={data.id}
           className="w-[306px] h-[443px] bg-white shadow-lg rounded-lg overflow-hidden transform hover:scale-105 transition-transform duration-500"
         >

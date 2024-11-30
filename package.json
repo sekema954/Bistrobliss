@@ -2,7 +2,6 @@
   "name": "bistrobliss",
   "private": true,
   "version": "0.0.0",
-  "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
@@ -13,7 +12,9 @@
     "@gsap/react": "^2.1.1",
     "aos": "^3.0.0-beta.6",
     "autoprefixer": "^10.4.20",
+    "cors": "^2.8.5",
     "dotenv": "^16.4.5",
+    "express": "^4.21.1",
     "gsap": "^3.12.5",
     "postcss-cli": "^11.0.0",
     "process": "^0.11.10",
