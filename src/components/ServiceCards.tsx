@@ -2,9 +2,6 @@ import caterings from '../assets/images/icons/caterings.png';
 import birthdays from '../assets/images/icons/birthdays.png';
 import weddings from '../assets/images/icons/weddings.png';
 import events from '../assets/images/icons/events.png';
-
-gsap.registerPlugin(ScrollTrigger);
-
 function ServiceCards() {
   const services = [
     {
