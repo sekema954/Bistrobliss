@@ -6,7 +6,6 @@ function Contact() {
     subject: "",
     message: "",
   });
-
   const handleChange = (event: any) => {
     const { id, value } = event.target;
     setFormValue((prev) => ({
