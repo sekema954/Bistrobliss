@@ -31,6 +31,7 @@ function Contact() {
 
     if (data.success) {
       setResult("Form Submitted Successfully");
+      window.alert("Form Submitted Successfully");
       (event.target as HTMLFormElement).reset();
     } else {
       console.log("Error", data);
