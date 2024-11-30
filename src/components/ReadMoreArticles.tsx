@@ -41,7 +41,7 @@ function ReadMoreArticles() {
             <p className="text-[30px] md:text-[55px]">Read More Articles</p>
             <p>We consider all the drivers of change gives you the components you need<br></br> to change to create a truly happens.</p>
         </div>
-        <div className='py-5 flex flex-col md:flex-row gap-5 mt-5'>
+        <div className='py-5 flex flex-col md:flex-row gap-5 mt-5 items-center justify-center'>
             {blogs.map(data=>(
                 <a href='/blogdetails' key={data.id} className='w-[306px] h-[340px] shadow shadow-lg rounded-[10px]'>
                     {/**context */}

@@ -176,7 +176,7 @@ function Navbar() {
                 {/* Close Button */}
                 <div className='flex items-center justify-center'>
                 <button 
-                    className="absolute bottom-10 right-[50%] text-2xl text-black border px-2 rounded-full bg-white shadow shadow-lg" 
+                    className="absolute bottom-10 right-[55%] text-2xl text-black border px-2 rounded-full bg-white shadow shadow-lg" 
                     onClick={() => setClicked(false)}
                 >
                     &times;
