@@ -1,4 +1,3 @@
-//Homepage
 import BrowseMenu from "../components/BrowseMenu";
 import Menubtn from "../components/Menubtn";
 import AboutContent from "../components/AboutContent";
@@ -6,17 +5,46 @@ import ServiceCards from "../components/ServiceCards";
 import Delivery from "../components/Delivery";
 import Testimonials from "../components/Testimonials";
 import BlogView from "../components/BlogView";
+import { useRef } from "react";
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { useGSAP } from '@gsap/react';
+
+gsap.registerPlugin(ScrollTrigger);
+
 function Homepage() {
+  let HeaderText = useRef(null);
+  let subText = useRef(null);
+
+  useGSAP(() => {
+    // Animation for HeaderText with ScrollTrigger
+    gsap.to(HeaderText.current, {
+      opacity: 1,
+      duration: 1,
+      ease: 'bounce',
+      yPercent: -20,
+    });
+
+    // Animation for subText with ScrollTrigger
+    gsap.to(subText.current, {
+      delay: 1,
+      opacity: 1,
+      ease: 'bounce',
+      yPercent: -15,
+    });
+
+  }, []);
+
   return (
     <div>
       {/***first page */}
       <div className="w-full h-screen custom-bg bg-center bg-no-repeat bg-cover flex items-center justify-center">
-        <div data-aos='zoom-in' className="w-[407px] text-center flex flex-col gap-3">
-          <p className="md:text-[66px] text-[50px] font-regular text-center text-[#2C2F24] leading-[70px]">Best food for<br></br>your taste</p>
-          <p className="text-sm md:text-md">Discover delectable cuisine and unforgettable moments in our welcoming, culinary haven.</p>
+        <div className="w-[407px] text-center flex flex-col gap-3">
+          <p ref={HeaderText} className="opacity-0 md:text-[66px] text-[50px] font-regular text-center text-[#2C2F24] leading-[70px]">Best food for<br></br>your taste</p>
+          <p ref={subText} className="text-sm md:text-md opacity-0">Discover delectable cuisine and unforgettable moments in our welcoming, culinary haven.</p>
           <div className="flex flex-col md:flex-row gap-4 items-center justify-center">
             <a href="/book">
-                <button className="w-[148px] h-[48px] rounded-full text-white bg-red-800 bg-white text-black transition duration-[1s] hover:bg-white hover:text-black hover:border ">Book A Table</button>
+              <button className="w-[148px] h-[48px] rounded-full text-white bg-red-800 text-black transition duration-[1s] hover:bg-white hover:text-black hover:border ">Book A Table</button>
             </a>
             <Menubtn />
           </div>
@@ -25,14 +53,13 @@ function Homepage() {
 
       {/***browse menu  */}
       <div className="py-10">
-          <div className="text-center">
-            <p className="text-[35px] font-regular">Browse Our Menu</p>
-          </div>
-          <div className="flex items-center justify-center">
-            <BrowseMenu />
-          </div>
+        <div className="text-center">
+          <p className="text-[35px] font-regular">Browse Our Menu</p>
+        </div>
+        <div className="flex items-center justify-center">
+          <BrowseMenu />
+        </div>
       </div>
-
 
       {/**About content */}
       <div>
@@ -55,7 +82,6 @@ function Homepage() {
         <Delivery />
       </div>
 
-
       {/**Testimonials */}
       <div className="py-10">
         <div>
@@ -68,10 +94,10 @@ function Homepage() {
 
       {/**Blog */}
       <div className="bg-[#F9F9F7] px-[50px] py-[50px]">
-        <div className="flex justify-between  items-center">
+        <div className="flex justify-between items-center">
           <p className="md:text-[55px] text-sm">Our Blog & Articles</p>
           <a href="/blog">
-          <button className="md:w-[148px] md:h-[48px] text-sm md:text-md rounded-full bg-[#AD343E] text-white transition duration-1000 hover:bg-transparent hover:text-black hover:border border-black">Read All Articles</button>
+            <button className="md:w-[148px] md:h-[48px] text-sm md:text-md rounded-full bg-[#AD343E] text-white transition duration-1000 hover:bg-transparent hover:text-black hover:border border-black">Read All Articles</button>
           </a>
         </div>
         <div className="flex items-center justify-center">
@@ -80,7 +106,7 @@ function Homepage() {
       </div>
 
     </div>
-  )
+  );
 }
 
-export default Homepage
+export default Homepage;
