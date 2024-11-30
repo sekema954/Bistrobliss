@@ -6,7 +6,7 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
-    "start":"serve -s dist",
+    "start": "serve -s dist",
     "preview": "vite preview",
     "heroku-postbuild": "npm run build"
   },
