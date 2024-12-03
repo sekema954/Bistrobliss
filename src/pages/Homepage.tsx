@@ -95,7 +95,7 @@ function Homepage() {
         <div className="flex justify-between items-center">
           <p className="md:text-[55px] text-sm">Our Blog & Articles</p>
           <a href="/blog">
-            <button className="md:w-[148px] md:h-[48px] text-sm md:text-md rounded-full bg-[#AD343E] text-white transition duration-1000 hover:bg-transparent hover:text-black hover:border border-black">Read All Articles</button>
+            <button className="md:w-[148px] md:h-[48px] text-sm md:text-md rounded-full bg-[#AD343E] text-white transition duration-1000 hover:bg-transparent hover:text-black hover:border border-black py-1 px-1">Read All Articles</button>
           </a>
         </div>
         <div className="flex items-center justify-center">
