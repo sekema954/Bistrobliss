@@ -139,6 +139,7 @@ function Navbar() {
                             Menu
                         </a>
                     </li>
+                    {/** * REMOVE BOOK 
                     <li>
                         <a 
                             href="/book" 
@@ -148,6 +149,7 @@ function Navbar() {
                             Book
                         </a>
                     </li>
+                    **/}
                     <li>
                         <a 
                             href="/blog" 
