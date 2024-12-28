@@ -18,6 +18,8 @@
 <p>- Responsive design for seamless user experience on any device.</p>
 <p>- Reservation system with automatic text notifications using Twilio.</p>
 <p>- User-friendly interface for managing bookings and checking availability.</p>
+<p>- User-friendly Menu option</p>
+
 
 <h1 id="tech-stack">Tech Stack</h1>
 <ul>
@@ -35,7 +37,7 @@
 
 <h2>Clone the Repository</h2>
 <pre>
-<code>git clone https://github.com/your-repo/bistro-bliss.git</code>
+<code>git clone https://github.com/sekema954/Bistrobliss.git</code>
 </pre>
 
 <h2>Navigate to the Project Directory</h2>
@@ -50,17 +52,24 @@
 
 <h2>Start the Development Server</h2>
 <pre>
-<code>npm start</code>
+<code>npm run dev</code>
 </pre>
 
 <h1 id="usage">Usage</h1>
-<p>After starting the development server, navigate to <a href="http://localhost:3000" target="_blank">http://localhost:3000</a> in your web browser to access the Bistro Bliss application. You can browse, book reservations, and receive confirmation messages.</p>
+<p>After starting the development server, navigate to <a href="http://localhost:3000" target="_blank">http://localhost:[dev port]</a> in your web browser to access the Bistro Bliss application. You can browse, book reservations, and receive confirmation messages.</p>
 
 <h1 id="folder-structure">Folder Structure</h1>
 <p>Here’s the folder structure for the Bistro Bliss project:</p>
 <pre>
 <code>
-bistro-bliss/
+BISTROBLISS/
+ backend/
+  # Backend dependencies
+│   ├── .env/                # .env variables
+│   ├── controllers/         # Logic for handling requests
+│   ├── models/              # MongoDB schemas
+│   ├── node_modules/        
+│   └── package.json 
 ├── public/
 │   ├── index.html           # Main HTML file for the frontend
 │   └── favicon.ico          # Application favicon
@@ -72,15 +81,9 @@ bistro-bliss/
 │   ├── styles/              # TailwindCSS and global styles
 │   ├── App.js               # Main application file
 │   └── index.js             # React entry point
-├── backend/
-│   ├── config/              # Configuration files (e.g., database)
-│   ├── controllers/         # Logic for handling requests
-│   ├── models/              # MongoDB schemas
-│   ├── routes/              # API route definitions
-│   ├── app.js               # Express server setup
-│   └── package.json         # Backend dependencies
 ├── .gitignore
-├── package.json             # Project metadata and frontend dependencies
+├── package.json  
+├── .env                     # Frontend .env variables
 └── README.md                # Project overview and setup instructions
 </code>
 </pre>
