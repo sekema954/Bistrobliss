@@ -1,50 +1,86 @@
-# React + TypeScript + Vite
+<img src="https://i.imgur.com/HGrpJD6.png" alt="Bistro Bliss Logo">
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+<h1>Welcome to Bistro Bliss!</h1>
+<p>
+  Where every reservation marks the beginning of a culinary journey. From the first bite to the last sip, we craft unforgettable dining experiences that bring people together.
+</p>
 
-Currently, two official plugins are available:
+<h1>Table of Contents</h1>
+<ul>
+  <li><a href="#features">Features</a></li>
+  <li><a href="#tech-stack">Tech Stack</a></li>
+  <li><a href="#installation">Installation</a></li>
+  <li><a href="#usage">Usage</a></li>
+  <li><a href="#folder-structure">Folder Structure</a></li>
+</ul>
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+<h1 id="features">Features</h1>
+<p>- Responsive design for seamless user experience on any device.</p>
+<p>- Reservation system with automatic text notifications using Twilio.</p>
+<p>- User-friendly interface for managing bookings and checking availability.</p>
 
-## Expanding the ESLint configuration
+<h1 id="tech-stack">Tech Stack</h1>
+<ul>
+  <li>Vite + React</li>
+  <li>TypeScript</li>
+  <li>Node.js</li>
+  <li>Twilio</li>
+  <li>MongoDB</li>
+  <li>TailwindCSS</li>
+  <li>Heroku</li>
+</ul>
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+<h1 id="installation">Installation</h1>
+<p>To set up and run the Bistro Bliss application, follow these steps:</p>
 
-- Configure the top-level `parserOptions` property like this:
+<h2>Clone the Repository</h2>
+<pre>
+<code>git clone https://github.com/your-repo/bistro-bliss.git</code>
+</pre>
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+<h2>Navigate to the Project Directory</h2>
+<pre>
+<code>cd bistro-bliss</code>
+</pre>
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+<h2>Install Dependencies</h2>
+<pre>
+<code>npm install</code>
+</pre>
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+<h2>Start the Development Server</h2>
+<pre>
+<code>npm start</code>
+</pre>
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+<h1 id="usage">Usage</h1>
+<p>After starting the development server, navigate to <a href="http://localhost:3000" target="_blank">http://localhost:3000</a> in your web browser to access the Bistro Bliss application. You can browse, book reservations, and receive confirmation messages.</p>
+
+<h1 id="folder-structure">Folder Structure</h1>
+<p>Here’s the folder structure for the Bistro Bliss project:</p>
+<pre>
+<code>
+bistro-bliss/
+├── public/
+│   ├── index.html           # Main HTML file for the frontend
+│   └── favicon.ico          # Application favicon
+├── src/
+│   ├── assets/              # Images and static files
+│   ├── components/          # Reusable React components
+│   ├── pages/               # Page components (e.g., Home, Reservation)
+│   ├── services/            # API handling and data fetching
+│   ├── styles/              # TailwindCSS and global styles
+│   ├── App.js               # Main application file
+│   └── index.js             # React entry point
+├── backend/
+│   ├── config/              # Configuration files (e.g., database)
+│   ├── controllers/         # Logic for handling requests
+│   ├── models/              # MongoDB schemas
+│   ├── routes/              # API route definitions
+│   ├── app.js               # Express server setup
+│   └── package.json         # Backend dependencies
+├── .gitignore
+├── package.json             # Project metadata and frontend dependencies
+└── README.md                # Project overview and setup instructions
+</code>
+</pre>
