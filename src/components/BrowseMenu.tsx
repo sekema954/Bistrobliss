@@ -5,8 +5,6 @@ import drinks from '../assets/images/icons/drinks.png';
 import desserts from '../assets/images/icons/desserts.png';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { useGSAP } from '@gsap/react';
-
 gsap.registerPlugin(ScrollTrigger);
 
 function BrowseMenu() {
