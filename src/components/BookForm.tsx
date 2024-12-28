@@ -92,10 +92,11 @@ function BookForm() {
         <input
           type="phone"
           id="phone"
+          autoComplete='off'
           name="phoneNumber"
           value={formData.phoneNumber}
           onChange={handleChange}
-          placeholder="+14535460345"
+          placeholder="4535460345"
           className="border rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
           required
         />

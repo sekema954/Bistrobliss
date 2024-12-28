@@ -8,6 +8,6 @@ const bookingSchema = new mongoose.Schema({
     guests: { type:String, required: true},
 }, {timestamps: true });
 
-const table_bookings = mongoose.model('Booking', bookingSchema, "BlissBookings");
+const Booking = mongoose.models.Table_Bookings || mongoose.model('Table_Bookings', bookingSchema);
 
-module.exports = table_bookings;
+module.exports = Booking;

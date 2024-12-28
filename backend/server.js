@@ -5,7 +5,7 @@ const PORT = process.env.PORT || 5004;
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const cors = require('cors');
-const table_bookings = require('./models/Booking');
+const Booking = require('./models/Booking');
 require('dotenv').config({ path: path.join(__dirname, '.env') });
 
 
@@ -17,7 +17,10 @@ app.use(bodyParser.json());
 app.use(cors());
 
 //Connect to database
-mongoose.connect(process.env.MONGODB_URI, {})
+mongoose.connect(process.env.MONGODB_URI, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+})
 .then(()=>{
   console.log('Mongodb connected');
 }).catch((err)=>{
@@ -42,14 +45,14 @@ app.post('/api/bookings', async (req, res)=>{
   }
 
   try{
-    const newBooking = new table_bookings({ name, phoneNumber, date, time, guests });
+    const newBooking = new Booking({ name, phoneNumber, date, time, guests });
     const saveBooking = await newBooking.save();
 
     //send text to client
     twilioClient.messages.create({
       body: `Hi ${name}, thank you for booing with us. We'll let you know when your table is ready.`,
       from: process.env.TWILIO_PHONE_NUMBER,
-      to:phoneNumber
+      to:`+1${phoneNumber}`
     })
     .then(message => console.log('Text sent:', message.sid))
     .catch(error => console.error('Error sending text:', error));
