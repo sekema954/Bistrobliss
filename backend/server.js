@@ -6,13 +6,14 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const table_bookings = require('./models/Booking');
+const dbURI = process.env.MONGODB_URI;
 require('dotenv').config({ path: path.join(__dirname, '.env') });
 
 app.use(bodyParser.json());
 app.use(cors());
 
 //Connect to database
-mongoose.connect(process.env.MONGODB_URI, {})
+mongoose.connect(dbURI, {})
 .then(()=>{
   console.log('Mongodb connected');
 }).catch((err)=>{
