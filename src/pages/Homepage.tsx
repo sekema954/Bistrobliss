@@ -55,7 +55,7 @@ function Homepage() {
         <div className="text-center">
           <p className="text-[35px] font-regular">Browse Our Menu</p>
         </div>
-        <div className="">
+        <div className="flex items-center justify-center">
           <BrowseMenu />
         </div>
       </div>
