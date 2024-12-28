@@ -13,6 +13,7 @@ function BrowseMenu() {
   const cardRef = useRef<(HTMLDivElement | null)[]>([]);
 
   // Animation using GSAP and ScrollTrigger
+  {/** *
   useGSAP(() => {
     cardRef.current
       .filter((card): card is HTMLDivElement => card !== null) // Ensure only non-null elements
@@ -30,7 +31,8 @@ function BrowseMenu() {
           },
         });
       });
-  }, []);
+  }, [])
+  **/}
 
   const menuCategory = [
     { id: 1, title: 'Breakfast', icon: breakfast, link: '/menu', context: 'In the new era of technology we look in the future with certainty and pride for our life.' },
