@@ -20,7 +20,7 @@ function Contact() {
     setResult("Sending....");
 
     const formData = new FormData(event.target as HTMLFormElement);
-    formData.append("access_key", "ead77d98-db96-4573-8d49-cb3095684216");
+    formData.append("access_key", import.meta.env.VITE_APP_KEY);
 
     const response = await fetch("https://api.web3forms.com/submit", {
       method: "POST",
@@ -31,7 +31,12 @@ function Contact() {
 
     if (data.success) {
       setResult("Form Submitted Successfully");
-      window.alert("Form Submitted Successfully");
+      setTimeout(()=>{
+        setResult("");
+      }, 2000);
+      setFormValue({name:"", email:"", subject:"", message:""});
+
+      
       (event.target as HTMLFormElement).reset();
     } else {
       console.log("Error", data);
@@ -50,6 +55,9 @@ function Contact() {
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 p-8 max-w-7xl mx-auto">
         <div className="bg-white border rounded-[20px] shadow-lg p-5">
+          <div>
+            <p className="text-green-400 text-sm font-bold text-center py-4">{result}</p>
+          </div>
           <form className="flex flex-col gap-5" onSubmit={handleSubmitForm}>
             <div className="flex flex-col md:flex-row gap-6">
               <div className="flex flex-col gap-3 flex-1">
@@ -136,7 +144,6 @@ function Contact() {
           </div>
         </div>
       </div>
-      <span>{result}</span>
     </div>
   );
 }

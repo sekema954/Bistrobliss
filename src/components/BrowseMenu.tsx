@@ -10,30 +10,25 @@ import { useGSAP } from '@gsap/react';
 gsap.registerPlugin(ScrollTrigger);
 
 function BrowseMenu() {
-  const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const cardRef = useRef<(HTMLDivElement | null)[]>([]);
 
   // Animation using GSAP and ScrollTrigger
   useGSAP(() => {
-    // Animate each card when it comes into view
-    cardRefs.current.forEach((card, index) => {
-        console.log(index)
-      gsap.fromTo(
-        card,
-        { opacity: 0, scale: 0.8, y: 50 },
-        {
-          opacity: 1,
-          scale: 1,
-          y: 0,
-          duration: 0.8,
-          ease: 'power3.out',
+    cardRef.current
+      .filter((card): card is HTMLDivElement => card !== null) // Ensure only non-null elements
+      .forEach((card, i) => {
+        gsap.from(card, {
+          x: 100,
+          opacity: 0,
+          duration: 1,
+          delay: i * 0.2,
           scrollTrigger: {
             trigger: card,
-            start: 'top 80%',
-            toggleActions: 'play reverse play reverse',
-          }
-        }
-      );
-    });
+            start: "top 90%",
+            toggleActions: "play none none reverse",
+          },
+        });
+      });
   }, []);
 
   const menuCategory = [
@@ -48,7 +43,7 @@ function BrowseMenu() {
       {menuCategory.map((data, index) => (
         <div
           key={data.id}
-          ref={(el) => (cardRefs.current[index] = el)}
+          ref={(el) => (cardRef.current[index] = el)}
           className="w-[306px] h-[375px] border border-gray shadow flex justify-center py-7 px-7 rounded-[20px] transition-transform duration-300 hover:shadow-lg hover:-translate-y-2"
         >
           <div className="text-center flex flex-col gap-3 items-center">
