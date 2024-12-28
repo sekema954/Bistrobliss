@@ -6,7 +6,7 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const table_bookings = require('./models/Booking');
-require('dotenv').config();
+require('dotenv').config({ path: path.join(__dirname, '.env') });
 
 app.use(bodyParser.json());
 app.use(cors());
