@@ -6,14 +6,13 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const table_bookings = require('./models/Booking');
-const dbURI = process.env.MONGODB_URI;
 require('dotenv').config({ path: path.join(__dirname, '.env') });
 
 app.use(bodyParser.json());
 app.use(cors());
 
 //Connect to database
-mongoose.connect(dbURI, {})
+mongoose.connect(process.env.MONGODB_URI, {})
 .then(()=>{
   console.log('Mongodb connected');
 }).catch((err)=>{
@@ -23,10 +22,10 @@ mongoose.connect(dbURI, {})
 
 
 //server frontend  build files to backend
-app.use(express.static(path.join(__dirname, 'dist')));
+app.use(express.static(path.join(__dirname, '../dist')));
 
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'dist', 'index.html'));
+  res.sendFile(path.resolve(__dirname, '../dist/index.html'));
 });
 
 
