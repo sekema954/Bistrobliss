@@ -22,6 +22,7 @@ function BrowseMenu() {
           opacity: 0,
           duration: 1,
           delay: i * 0.2,
+          stagger: 0.2,
           scrollTrigger: {
             trigger: card,
             start: "top 90%",

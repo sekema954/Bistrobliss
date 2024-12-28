@@ -8,6 +8,11 @@ const cors = require('cors');
 const table_bookings = require('./models/Booking');
 require('dotenv').config({ path: path.join(__dirname, '.env') });
 
+
+//twilio setup
+const twilio = require('twilio');
+const twilioClient = twilio(process.env.TWILIO_ACCOUNT_SID, process.env.TWILIO_AUTH_TOKEN);
+
 app.use(bodyParser.json());
 app.use(cors());
 
@@ -32,7 +37,6 @@ app.get('*', (req, res) => {
 //Route to post bookings to database // mongodb
 app.post('/api/bookings', async (req, res)=>{
   const { name, phoneNumber, date, time, guests} = req.body;
-  console.log('Received data:', req.body);  // Log the incoming data to check for issues
   if(!name || !phoneNumber || !date || !time || !guests) {
     return res.status(400).json({message: "All fields required!"});
   }
@@ -40,8 +44,18 @@ app.post('/api/bookings', async (req, res)=>{
   try{
     const newBooking = new table_bookings({ name, phoneNumber, date, time, guests });
     const saveBooking = await newBooking.save();
+
+    //send text to client
+    twilioClient.messages.create({
+      body: `Hi ${name}, thank you for booing with us. We'll let you know when your table is ready.`,
+      from: process.env.TWILIO_PHONE_NUMBER,
+      to:phoneNumber
+    })
+    .then(message => console.log('Text sent:', message.sid))
+    .catch(error => console.error('Error sending text:', error));
+
+
     res.status(201).json({message: 'Booking successful', booking: saveBooking});
-    console.log('booking', saveBooking);
   } catch(error) {
       console.error('Error saving booking:', error);
       res.status(500).json({message: "Error saving booking" });

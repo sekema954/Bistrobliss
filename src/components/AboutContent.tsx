@@ -20,11 +20,12 @@ function AboutContent() {
     if (leftSection && rightSection) {
       gsap.fromTo(
         leftSection,
-        { opacity: 0, x: '-50%' }, // Smaller initial offset
+        { opacity: 0.19, x: '-20%' },
         {
           opacity: 1,
           x: '0%',
           duration: 1.2,
+          stagger: 0.1,
           ease: 'power3.out',
           scrollTrigger: {
             trigger: leftSection,
@@ -37,7 +38,7 @@ function AboutContent() {
 
       gsap.fromTo(
         rightSection,
-        { opacity: 0, x: '50%' }, // Smaller initial offset
+        { opacity: 0, x: '50%' },
         {
           opacity: 1,
           x: '0%',

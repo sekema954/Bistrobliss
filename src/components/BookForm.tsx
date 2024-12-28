@@ -95,7 +95,7 @@ function BookForm() {
           name="phoneNumber"
           value={formData.phoneNumber}
           onChange={handleChange}
-          placeholder="xxx-xxx-xxxx"
+          placeholder="+14535460345"
           className="border rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
           required
         />

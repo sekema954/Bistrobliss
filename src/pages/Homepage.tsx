@@ -19,6 +19,7 @@ function Homepage() {
     gsap.to(HeaderText.current, {
       opacity: 1,
       duration: 1,
+      stagger: 0.1,
       ease: 'bounce',
       yPercent: -20,
     });
@@ -54,7 +55,7 @@ function Homepage() {
         <div className="text-center">
           <p className="text-[35px] font-regular">Browse Our Menu</p>
         </div>
-        <div className="flex items-center justify-center">
+        <div className="">
           <BrowseMenu />
         </div>
       </div>
